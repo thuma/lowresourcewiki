@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
+ <head>
+ <script src="wiky.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  document.write("<title>Wiki"+get("page")+"</title>");
+  </script>
+  <link rel="stylesheet" href="wiky.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</head>
+ <body>
+ 
+<script type="text/javascript">
+wikibody = "No page named "+get("page");
+document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javascr"+"ipt\"></scr"+"ipt>");
+</script>
+  
+ <script type="text/javascript">
+ document.write(Wiky.toHtml(wikibody));
+ </script>
+</body>
+</html>
