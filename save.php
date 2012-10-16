@@ -15,7 +15,7 @@ if (is_file("wikidata".$_POST["page"].".js.".$_POST["version"])){
 echo "Page is changed after you started to edit it.<br /> Go back to uppdate and add your changed again.<br />";
 } else {
 file_put_contents("wikidata".$_POST["page"].".js.".$_POST["version"], $oldpage);
-$newpage = 'var wikibody = "'.str_replace("\"","\\\"",str_replace(array("\r\n", "\n", "\r"), "\\n", $_POST["wikiform"])).'";'."\n";
+$newpage = 'var wikibody = "'.str_replace("\"","\\\"",str_replace(array("\r\n", "\n", "\r"), "\\n", str_replace("\\","\\\\",$_POST["wikiform"])).'";'."\n";
 $newpage = $newpage . 'var version = "'.strval(intval($_POST["version"])+1).'";';
 file_put_contents("wikidata".$_POST["page"].".js", $newpage);
 echo "Stored OK <br />";
