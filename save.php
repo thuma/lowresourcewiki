@@ -10,7 +10,7 @@
 <?php
 $oldpage = "";
 if (is_file("wikidata".$_POST["page"].".js")){
-	file_get_contents("wikidata".$_POST["page"].".js", $oldpage);
+	$oldpage = file_get_contents("wikidata".$_POST["page"].".js");
 }
 if (is_file("wikidata".$_POST["page"].".js.".$_POST["version"])){
 	echo "Page is changed after you started to edit it.<br /> Go back to uppdate and add your changed again.<br />";
