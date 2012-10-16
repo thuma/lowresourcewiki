@@ -12,6 +12,7 @@
  
 <script type="text/javascript">
 wikibody = "No text on page *"+get("page") + "*.";
+version = "0";
 document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javascr"+"ipt\"></scr"+"ipt>");
 </script>
 <div id="wikibody"></div>
@@ -20,7 +21,7 @@ document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javasc
 <textarea name="wikiform" rows="4" cols="50" id="wikiform" onkeyup="document.getElementById('wikibody').innerHTML = Wiky.toHtml(document.getElementById('wikiform').value)"></textarea> 
 <br />
 <input type="hidden" name="page" id="page" value="" />
-<input type="hidden" name="version" id="version" value="0" />
+<input type="hidden" name="version" id="version" value="" />
 <input type="submit" value="Save" />
 </form>
 
