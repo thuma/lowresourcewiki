@@ -3,7 +3,7 @@
  <head>
  <script src="wiky.js" type="text/javascript"></script>
   <script type="text/javascript">
-  document.write("<title>Wiki"+get("page")+"</title>");
+  document.write("<title>Wiki "+get("page")+"</title>");
   </script>
   <link rel="stylesheet" href="wiky.css" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -11,12 +11,21 @@
  <body>
  
 <script type="text/javascript">
-wikibody = "No page named "+get("page");
+wikibody = "No text on page *"+get("page") + "*.";
 document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javascr"+"ipt\"></scr"+"ipt>");
 </script>
-  
- <script type="text/javascript">
- document.write(Wiky.toHtml(wikibody));
- </script>
+<div id="wikibody"></div>
+ 
+<form target="save.php" method="post">
+<textarea rows="4" cols="50" id="wikiform" onkeyup="document.getElementById('wikibody').innerHTML = Wiky.toHtml(document.getElementById('wikiform').value)"></textarea> 
+<br />
+<input type="submit" value="Save"/>
+</form>
+
+<script type="text/javascript">
+ document.getElementById("wikibody").innerHTML = Wiky.toHtml(wikibody);
+ document.getElementById("wikiform").value = wikibody;
+</script>
+ 
 </body>
 </html>
