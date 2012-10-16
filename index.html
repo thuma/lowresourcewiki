@@ -16,15 +16,19 @@ document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javasc
 </script>
 <div id="wikibody"></div>
  
-<form target="save.php" method="post">
-<textarea rows="4" cols="50" id="wikiform" onkeyup="document.getElementById('wikibody').innerHTML = Wiky.toHtml(document.getElementById('wikiform').value)"></textarea> 
+<form action="save.php" method="post">
+<textarea name="wikiform" rows="4" cols="50" id="wikiform" onkeyup="document.getElementById('wikibody').innerHTML = Wiky.toHtml(document.getElementById('wikiform').value)"></textarea> 
 <br />
-<input type="submit" value="Save"/>
+<input type="hidden" name="page" id="page" value="" />
+<input type="hidden" name="version" id="version" value="0" />
+<input type="submit" value="Save" />
 </form>
 
 <script type="text/javascript">
  document.getElementById("wikibody").innerHTML = Wiky.toHtml(wikibody);
  document.getElementById("wikiform").value = wikibody;
+  document.getElementById("version").value = version;
+ document.getElementById("page").value = get("page");
 </script>
  
 </body>
