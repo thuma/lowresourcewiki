@@ -31,12 +31,16 @@ document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javasc
  document.getElementById("version").value = version;
  document.getElementById("page").value = get("page");
  wikibodyn = wikibody;
- document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js.1\" type=\"text/javascr"+"ipt\"></scr"+"ipt>");
+ if(get("version")!="Main"){
+ document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js."+get("version")+"\" type=\"text/javascr"+"ipt\"></scr"+"ipt>");
+ }
 </script>
-
+<pre>
 <script type="text/javascript">
+ if(get("version")!="Main"){
  document.write(diffString(wikibody, wikibodyn));
+ }
 </script>
-
+</pre>
 </body>
 </html>
