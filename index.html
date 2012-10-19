@@ -14,7 +14,7 @@
  <td colspan="2">
 <script type="text/javascript">
 wikibody = "No text on page *"+unescape(get("page")) + "*.";
-version = "0";
+version = 0;
 document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javascr"+"ipt\"></scr"+"ipt>");
 </script>
 <div id="wikibody"></div>
@@ -61,13 +61,13 @@ document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javasc
 <tr>
 <td>
 <script type="text/javascript">
-if(version!="0"){
-document.write("<a href=\"index.html?page="+get("page")+"&version="+(version-1)+"\">&lt;&lt;-- Earlier version</a><br />");
+if(version != 0 && get("version") != "0"){
+document.write("<a href=\"index.html?page="+get("page")+"&version="+(parseInt(version)-1)+"\">&lt;&lt;-- Earlier version</a><br />");
 }else
 document.write("&lt;&lt;-- Earlier version");
 document.write("</td><td>");
 if(versionmax-1 != version && get("version")!= "Main"){
-document.write("<a href=\"index.html?page="+get("page")+"&version="+(version-2+3)+"\">Later version --&gt;&gt;</a>");
+document.write("<a href=\"index.html?page="+get("page")+"&version="+(parseInt(version)+1)+"\">Later version --&gt;&gt;</a>");
 }else{
 document.write("Later version --&gt;&gt;");
 }
