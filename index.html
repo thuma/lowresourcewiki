@@ -9,14 +9,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 </head>
  <body>
- 
+ <table>
+ <tr>
+ <td colspan="2">
 <script type="text/javascript">
 wikibody = "No text on page *"+unescape(get("page")) + "*.";
 version = "0";
 document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javascr"+"ipt\"></scr"+"ipt>");
 </script>
 <div id="wikibody"></div>
- 
+ </td>
+ </tr>
+ <tr>
+ <td colspan="2">
 <form action="save.php" method="post">
 <textarea name="wikiform" rows="4" cols="50" id="wikiform" onkeyup="document.getElementById('wikibody').innerHTML = Wiky.toHtml(document.getElementById('wikiform').value)"></textarea> 
 <br />
@@ -24,14 +29,17 @@ document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javasc
 <input type="hidden" name="version" id="version" value="" />
 <input type="submit" value="Save" />
 </form>
-
+</td>
+</tr>
+<tr>
+<td colspan="2">
 <script type="text/javascript">
  document.getElementById("wikibody").innerHTML = Wiky.toHtml(wikibody);
  document.getElementById("wikiform").value = wikibody;
+ wikibodyn = wikibody;
  document.getElementById("version").value = version;
  versionmax = version;
  document.getElementById("page").value = get("page");
- wikibodyn = wikibody;
  if(get("version")!="Main"){
  document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js."+get("version")+"\" type=\"text/javascr"+"ipt\"></scr"+"ipt>");
  }
@@ -43,13 +51,29 @@ document.write("<scr"+"ipt src=\"wikidata"+get("page")+".js\" type=\"text/javasc
   }
 </script>
 </pre>
+</td>
+</tr>
+<script type="text/javascript">
+ if(get("version")!="Main"){
+ document.write("<tr><td><textarea name=\"wikiold\" rows=\"4\" cols=\"50\" id=\"wikiold\" >"+wikibody+"</textarea></textarea></td></tr>");
+  }
+</script>
+<tr>
+<td>
 <script type="text/javascript">
 if(version!="0"){
-document.write("<a href=\"index.html?page="+get("page")+"&version="+(version-1)+"\">Tidigare version</a><br />");
-}
-if(versionmax!=get("version")){
-document.write("<a href=\"index.html?page="+get("page")+"&version="+(version-2+3)+"\">Senare version</a>");
+document.write("<a href=\"index.html?page="+get("page")+"&version="+(version-1)+"\">&lt;&lt;-- Earlier version</a><br />");
+}else
+document.write("&lt;&lt;-- Earlier version");
+document.write("</td><td>");
+if(versionmax-1 != version && get("version")!= "Main"){
+document.write("<a href=\"index.html?page="+get("page")+"&version="+(version-2+3)+"\">Later version --&gt;&gt;</a>");
+}else{
+document.write("Later version --&gt;&gt;");
 }
 </script>
+</td>
+</tr>
+</table>
 </body>
 </html>
