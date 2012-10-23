@@ -8,7 +8,7 @@
 </head>
  <body>
 <?php
-$oldpage = "";
+$oldpage = "var wikibody =\"\"\nvar version = 0";
 if (is_file("wikidata".$_POST["page"].".js")){
 	$oldpage = file_get_contents("wikidata".$_POST["page"].".js");
 }

@@ -291,7 +291,7 @@ var Wiky = {
      wikiblocks: [
        "Wiky.inverse.nonwikiinlines",
        "Wiky.inverse.escapes",
-       "Wiky.inverse.wikiinlines",
+       "Wiky.inverse.wikiinlines",	
        { rex:/<h1>(.*?)<\/h1>/mgi, tmplt:"=$1=" },
        { rex:/<h2>(.*?)<\/h2>/mgi, tmplt:"==$1==" },
        { rex:/<h3>(.*?)<\/h3>/mgi, tmplt:"===$1===" },
